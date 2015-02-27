@@ -18,7 +18,7 @@ function PixelPainter(width,height){
   };
 
  
-  Paint.controls.width(90);
+  Paint.controls.width(140);
  Paint.controls.height(200);
   
 
