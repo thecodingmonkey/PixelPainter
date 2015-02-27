@@ -3,6 +3,7 @@ $(document).ready(function() {
 
   var pixelSize = 20;
   var currentColor = "#000";
+  var dragMode = false;
 //  var pixelPainter = null;
 
   function PixelPainter(height, width) {
@@ -16,6 +17,22 @@ $(document).ready(function() {
 
     var i;
 
+    var fillColorStart = function() {
+      $(this).css("background-color", currentColor);
+      dragMode = true;
+    };
+
+    var fillColorDrag = function() {
+      if (dragMode) {
+        $(this).css("background-color", currentColor);
+      }
+    };
+
+    var fillColorStop = function() {
+      dragMode = false;
+    };
+
+
     for(i=0; i < height*width; i++) {
       var pixel = $("<div>");
       pixel.css("border", "1px black solid");
@@ -23,9 +40,9 @@ $(document).ready(function() {
       pixel.height(pixelSize + "px");
       pixel.css("display", "inline-block");
 
-      pixel.click( function() {
-          $(this).css("background-color", currentColor);
-      });
+      pixel.on("mousedown", fillColorStart);
+      pixel.on("mouseup", fillColorStop);
+      pixel.on("mouseenter", fillColorDrag);
 
       result.artboard.append(pixel);
     }
