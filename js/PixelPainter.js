@@ -31,6 +31,7 @@ function PixelPainter(width,height){
 
 
     var pixel = $("<div>");
+    pixel.addClass("pixel");
     pixel.width(width + "px");
     pixel.height(height + "px");
     pixel.css("border","solid 1px #000");
@@ -70,7 +71,22 @@ function PixelPainter(width,height){
     }
   } 
 
-  var colors = ["#000","#FFF"];
+
+
+
+  var colors = ["#000","#FFF",
+
+"#FFF900", "#FCD221", "#FFF746", "#EFCE5F", "#285D00", "#2D6800",
+"#AFF609", "#62F100", "#8CF500", "#50B213", "#60F357", "#8EDF6D",
+"#46944E", "#5CEF75", "#635F04", "#336A38", "#DF1C1C", "#E1361A",
+"#E97016", "#ED8A13", "#C9272E", "#550E0E", "#7A2121", "#BA521D",
+"#E6643C", "#B31D2E", "#CF7A5E", "#DD217A", "#851E1C", "#E1539F",
+"#A64344", "#D46665", "#ECA0AC", "#EB875E", "#D821FF", "#9A1C68",
+"#B357C9", "#B75576", "#DC6557", "#DF8946", "#000C61", "#270F62",
+"#0C134C", "#0009FE", "#541162", "#5321C7", "#4D7DF2", "#57F9FA",
+"#296F6F", "#2A2868", "#34A4FB", "#1F71FD", "#9AC6D5", "#3B938B",
+"#77B9F6", "#98AECF", "#564771", "#4E4CE2", "#101838", "#423FB7",
+"#546170", "#356298", "#255F5F", "#56CCB9", "#8C8C8C", "#BFC0BF"];
 
   colors.forEach(function(val){
 
@@ -119,7 +135,8 @@ function PixelPainter(width,height){
 
   clear.on("click",function(){
 
-    Paint.artboard.css("content"," ");
+   $(".pixel").css("background-color","");
+
 
   });
 
@@ -135,3 +152,25 @@ var pixelPainter = PixelPainter(20,20);
 $("#controls").append(pixelPainter.controls);
 $("#artboard").append(pixelPainter.artboard);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
