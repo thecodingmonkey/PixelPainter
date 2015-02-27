@@ -4,13 +4,44 @@ $(document).ready(function() {
   var pixelSize = 20;
   var currentColor = "#000";
   var dragMode = false;
+  var colors = ["#000", "#fff"];
 //  var pixelPainter = null;
 
   function PixelPainter(height, width) {
     var result = {};
 
     result.controls = $("<div>");
+    result.controls.width(200);
+    result.controls.height(200);
+
     result.artboard = $("<div>");
+
+    // init controls
+    var swatch = $("<div>");
+
+    colors.map( function(val) {
+      var swatchColor = $("<div>");
+      swatchColor.css("border", "1px black solid");
+      swatchColor.width(pixelSize + "px");
+      swatchColor.height(pixelSize + "px");
+      swatchColor.css("display", "inline-block");
+      swatchColor.css("background-color", val);
+      swatchColor.click(function() {
+        val.css("border", "1px black solid");
+
+        currentColor = $(this).css("background-color");
+//        $(this).css('border', "1px black gray");
+//        console.log(currentColor);
+      });
+
+      swatch.append(swatchColor);  
+    });
+
+    result.controls.append(swatch);
+
+
+
+    // init canvas    
 
     // add 2 to width because of the border
     result.artboard.width(pixelSize * (2+width) );
@@ -41,8 +72,8 @@ $(document).ready(function() {
       pixel.css("display", "inline-block");
 
       pixel.on("mousedown", fillColorStart);
-      pixel.on("mouseup", fillColorStop);
       pixel.on("mouseenter", fillColorDrag);
+      pixel.on("mouseup", fillColorStop);
 
       result.artboard.append(pixel);
     }
