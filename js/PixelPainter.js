@@ -19,11 +19,13 @@ function PixelPainter(width,height){
 
  
   Paint.controls.width(90);
- Paint.controls.height(30);
+ Paint.controls.height(200);
   
 
    Paint.artboard.width(450);
   // Paint.artboard.height(10);
+
+
 
   for(var i=0;i< width*height;i++){
 
@@ -93,14 +95,33 @@ function PixelPainter(width,height){
 
   });
 
- debugger;
-  var erasey = $("<div>");
-  erasey.width(200);
-  erasey.height(100);
-  erasey.css("background-color","pink");
-  //var clear = $("<button>");   
+
+  var erase = $("<button>");
+  erase.width(100);
+  erase.height(50);
+  erase.html("erase");
+  erase.css({"display":"block"});
   
-  Paint.controls.append(erasey);
+  var clear = $("<button>"); 
+  clear.width(100);
+  clear.height(50);
+  clear.html("clear"); 
+  clear.css({"display":"block"});
+  
+  Paint.controls.append(erase).append(clear);
+
+  erase.on("click",function(){
+
+  currentColor = "";
+
+
+  });
+
+  clear.on("click",function(){
+
+    Paint.artboard.css("content"," ");
+
+  });
 
   return Paint;
 
