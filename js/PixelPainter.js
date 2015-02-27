@@ -134,6 +134,12 @@ function PixelPainter(width,height){
   });
 
   clear.on("click",function(){
+    var sound = {};
+    sound = new Audio();
+    sound.src = "./assets/wof-puzzle-reveal.mp3";
+    sound.play();
+
+//    $(".pixel")
 
    $(".pixel").css("background-color","");
 
