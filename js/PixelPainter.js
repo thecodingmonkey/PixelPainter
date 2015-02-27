@@ -2,20 +2,27 @@ $(document).ready(function()
 {
 //  alert('hello');
     var currentColor = "#000";
+    var dragMode = false;
+    var gridWidth = 40;
+    var gridHeight = 10;
 
 function PixelPainter(width,height){
 
 
   var Paint = { 
-
+    
     controls: $("<div>"),
     artboard: $("<div>")
 
   };
 
-  Paint.artboard.width(200);
-  Paint.artboard.height(200);
+ 
+  Paint.controls.width(90);
+ Paint.controls.height(30);
+  
 
+   Paint.artboard.width(450);
+  // Paint.artboard.height(10);
 
   for(var i=0;i< width*height;i++){
 
@@ -58,22 +65,28 @@ function PixelPainter(width,height){
     }
   } 
 
-  // var colors = ["#000","#FFF"];
+  var colors = ["#000","#FFF"];
 
-  // colors.map(function(val){
+  colors.map(function(val){
 
-  //   var color = $("div");
+    var color = $("<div>");
 
-  //   color.width(width + "px");
-  //   color.height(height + "px");
-  //   color.css("background-color", val);
-  //   color.css("border","1px solid black");
-  //   color.css("display","inline-block");
+    color.width(width + "px");
+    color.height(height + "px");
+    color.css("background-color", val);
+    color.css("border","1px solid black");
+    color.css("display","inline-block");
 
-  //   var currentColor = $(this).css("background");
+    color.click(function(){
 
-  //   Paint.controls.append(color);
-  // });
+      currentColor =  $(this).css("background-color");
+
+    });
+
+     
+
+    Paint.controls.append(color);
+  });
 
   
 
