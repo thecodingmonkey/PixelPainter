@@ -1,6 +1,10 @@
+
 $(document).ready(function() 
 {
-//  alert('hello');
+    // this is for color fading transitions
+    $.getScript("./js/jquery.color.js", function() { jQueryColorLoaded = true; });
+
+    var jQueryColorLoaded = false;
     var currentColor = "#000";
     var dragMode = false;
     var gridWidth = 40;
@@ -36,6 +40,8 @@ function PixelPainter(width,height){
     pixel.height(height + "px");
     pixel.css("border","solid 1px #000");
     pixel.css("display","inline-block");
+
+    pixel.data("index", i);
 
     pixel.on("mousedown",mouseDown);
     pixel.on("mouseenter",mouseDrag);
@@ -139,9 +145,44 @@ function PixelPainter(width,height){
     sound.src = "./assets/wof-puzzle-reveal.mp3";
     sound.play();
 
-//    $(".pixel")
+    var old_width = $(".pixel").width();
+    $(".pixel").each( function(idx, item) {
+//      console.log(item);
 
-   $(".pixel").css("background-color","");
+      var idx_x, idx_y;
+
+      idx_x = idx % (width);
+      idx_y = idx / (width);
+
+
+
+      $(item).animate(
+        {
+//          width: 0,
+            backgroundColor: "#008000"
+        },
+         400  // .4sec
+      )
+    .delay(10 * (idx_x + idx_y*4 + 5))
+    .queue( function(next){ 
+      $(this).css("background-color", "");
+      next(); 
+    });
+
+    
+
+    // .animate(
+    //     {
+    //         backgroundColor: ""
+    //     },
+    //     20 * (idx_x + idx_y*4 + 5)
+    //   )
+    // ;
+
+    });
+
+
+//   $(".pixel").css("background-color","");
 
 
   });
