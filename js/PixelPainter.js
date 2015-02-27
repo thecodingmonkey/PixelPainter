@@ -8,6 +8,7 @@ $(document).ready(function()
 
 function PixelPainter(width,height){
 
+  var container = $("<div>").addClass("container");
 
   var Paint = { 
     
@@ -41,6 +42,8 @@ function PixelPainter(width,height){
 
     Paint.artboard.append(pixel);
 
+
+
   }
 
   function mouseDown(){
@@ -67,7 +70,7 @@ function PixelPainter(width,height){
 
   var colors = ["#000","#FFF"];
 
-  colors.map(function(val){
+  colors.forEach(function(val){
 
     var color = $("<div>");
 
@@ -86,9 +89,18 @@ function PixelPainter(width,height){
      
 
     Paint.controls.append(color);
+
+
   });
 
+ debugger;
+  var erasey = $("<div>");
+  erasey.width(200);
+  erasey.height(100);
+  erasey.css("background-color","pink");
+  //var clear = $("<button>");   
   
+  Paint.controls.append(erasey);
 
   return Paint;
 
