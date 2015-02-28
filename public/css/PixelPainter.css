@@ -1,0 +1,18 @@
+
+#controls{
+  width:100px;
+  float:left;
+  padding:0;
+  margin-right:45px;
+}
+
+#artboard{
+
+  float:left;
+}
+button{
+  margin: 1em auto;
+  border-radius: 15px;
+  background:#FFF;
+
+}
