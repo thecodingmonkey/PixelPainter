@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/thecodingmonkey/PixelPainter/issues"
   },
-  "homepage": "https://github.com/thecodingmonkey/PixelPainter"
+  "homepage": "https://github.com/thecodingmonkey/PixelPainter",
+  "dependencies": {
+    "body-parser": "^1.12.0",
+    "express": "^4.12.0"
+  }
 }
