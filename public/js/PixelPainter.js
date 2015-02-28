@@ -12,7 +12,6 @@ $(document).ready(function()
 
 function PixelPainter(width,height){
 
-  var container = $("<div>").addClass("container");
 
   var Paint = { 
     
@@ -21,14 +20,16 @@ function PixelPainter(width,height){
 
   };
 
+
+
  
+
   Paint.controls.width(140);
- Paint.controls.height(200);
+  Paint.controls.height(100);
   
 
-   Paint.artboard.width(450);
-  // Paint.artboard.height(10);
-
+  Paint.artboard.width(495);
+  
 
 
   for(var i=0;i< width*height;i++){
@@ -120,17 +121,29 @@ function PixelPainter(width,height){
 
   var erase = $("<button>");
   erase.width(100);
-  erase.height(50);
+  erase.height(30);
   erase.html("erase");
   erase.css({"display":"block"});
   
   var clear = $("<button>"); 
   clear.width(100);
-  clear.height(50);
+  clear.height(30);
   clear.html("clear"); 
   clear.css({"display":"block"});
   
-  Paint.controls.append(erase).append(clear);
+  var load = $("<button>"); 
+  load.width(100);
+  load.height(30);
+  load.html("load"); 
+  load.css({"display":"block"});
+
+  var save = $("<button>"); 
+  save.width(100);
+  save.height(30);
+  save.html("save"); 
+  save.css({"display":"block"});
+
+  Paint.controls.append(erase).append(clear).append(load).append(save);
 
   erase.on("click",function(){
 
@@ -138,6 +151,8 @@ function PixelPainter(width,height){
 
 
   });
+
+
 
   clear.on("click",function(){
     var sound = {};
@@ -169,6 +184,20 @@ function PixelPainter(width,height){
       next(); 
     });
 
+    save.on("click",function(){
+
+  currentColor = "";
+
+
+  });
+
+    load.on("click",function(){
+
+  currentColor = "";
+
+
+  });
+
     
 
     // .animate(
@@ -187,6 +216,53 @@ function PixelPainter(width,height){
 
   });
 
+  // var input_box = $("<input>");
+  // input_box.addClass("number1");
+  
+  // var input_box2 = $("<input>");
+  // input_box2.addClass("number2");
+  
+  // var label = $("<label>");
+  // var label2 = $("<label>");
+  // var size_button = $("<button>");
+
+  // size_button.html("Change Size");
+  
+  // label.html("Width:");
+
+ 
+  // Paint.controls.append(label);
+  
+  // input_box.css("width","40px");
+  // input_box.css("height","20px");
+
+  // input_box2.css("width","40px");
+  // input_box2.css("height","20px");
+  
+  // Paint.controls.append(input_box);
+  // Paint.controls.append("<br>");
+
+  // label2.html("Height:");
+ 
+  // Paint.controls.append(label2);
+
+  // Paint.controls.append(input_box2);
+
+  // Paint.controls.append(size_button);
+
+  // size_button.on("click",function(){
+
+    
+
+  //   pixel.width(input_box.value);
+  //   pixel.height(input_box2.value);
+
+  //   var pixelPainter = PixelPainter(20,20);
+  //   $("#artboard").append(pixelPainter.controls);
+    
+   
+  // });
+
   return Paint;
 
 }
@@ -195,7 +271,7 @@ function PixelPainter(width,height){
 
 
 
-var pixelPainter = PixelPainter(20,20);
+var pixelPainter = PixelPainter(20,21);
 $("#controls").append(pixelPainter.controls);
 $("#artboard").append(pixelPainter.artboard);
 });
