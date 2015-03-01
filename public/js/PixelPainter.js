@@ -12,17 +12,14 @@ $(document).ready(function()
 
     function PixelPainter(width,height){
 
-<<<<<<< HEAD
-=======
-      var container = $("<div>").addClass("container");
->>>>>>> bafea67ef6433df74f59b8480ab6023c44aa1e6b
+
 
       var Paint = { 
 
         controls: $("<div>"),
         artboard: $("<div>")
 
-<<<<<<< HEAD
+};
 
 
  
@@ -31,16 +28,10 @@ $(document).ready(function()
   Paint.controls.height(100);
   
 
-  Paint.artboard.width(495);
   
-=======
-      };
+  
 
-
-      Paint.controls.width(140);
-      Paint.controls.height(200);
->>>>>>> bafea67ef6433df74f59b8480ab6023c44aa1e6b
-
+     
 
       Paint.artboard.width(450);
       // Paint.artboard.height(10);
@@ -134,7 +125,7 @@ $(document).ready(function()
       });
 
 
-<<<<<<< HEAD
+
   var erase = $("<button>");
   erase.width(100);
   erase.height(30);
@@ -160,38 +151,18 @@ $(document).ready(function()
   save.css({"display":"block"});
 
   Paint.controls.append(erase).append(clear).append(load).append(save);
-=======
-      var erase = $("<button>");
-      erase.width(100);
-      erase.height(50);
-      erase.html("erase");
-      erase.css({"display":"block"});
->>>>>>> bafea67ef6433df74f59b8480ab6023c44aa1e6b
 
-      var clear = $("<button>"); 
-      clear.width(100);
-      clear.height(50);
-      clear.html("clear"); 
-      clear.css({"display":"block"});
+     
 
-      Paint.controls.append(erase).append(clear);
+      
 
       erase.on("click",function(){
 
         currentColor = "";
 
-<<<<<<< HEAD
-
-
-  clear.on("click",function(){
-    var sound = {};
-    sound = new Audio();
-    sound.src = "./assets/wof-puzzle-reveal.mp3";
-    sound.play();
-=======
->>>>>>> bafea67ef6433df74f59b8480ab6023c44aa1e6b
 
       });
+ 
 
       clear.on("click",function(){
         var sound = {};
@@ -223,24 +194,22 @@ $(document).ready(function()
           next(); 
         });
 
-<<<<<<< HEAD
+
     save.on("click",function(){
 
-  currentColor = "";
+  
 
 
   });
 
     load.on("click",function(){
 
-  currentColor = "";
+ 
 
 
   });
 
     
-=======
->>>>>>> bafea67ef6433df74f59b8480ab6023c44aa1e6b
 
 
         // .animate(
@@ -257,7 +226,7 @@ $(document).ready(function()
       //   $(".pixel").css("background-color","");
 
 
-<<<<<<< HEAD
+
   // var input_box = $("<input>");
   // input_box.addClass("number1");
   
@@ -305,12 +274,11 @@ $(document).ready(function()
    
   // });
 
-  return Paint;
-=======
+  
     });
 
     return Paint;
->>>>>>> bafea67ef6433df74f59b8480ab6023c44aa1e6b
+
 
   }
 
@@ -318,15 +286,12 @@ $(document).ready(function()
 
 
 
-<<<<<<< HEAD
+
 var pixelPainter = PixelPainter(20,21);
 $("#controls").append(pixelPainter.controls);
 $("#artboard").append(pixelPainter.artboard);
-=======
-  var pixelPainter = PixelPainter(20,20);
-  $("#controls").append(pixelPainter.controls);
-  $("#artboard").append(pixelPainter.artboard);
->>>>>>> bafea67ef6433df74f59b8480ab6023c44aa1e6b
+
+ 
 });
 
 
