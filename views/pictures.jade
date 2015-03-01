@@ -1,0 +1,18 @@
+doctype
+html(lang="en")
+head
+  meta(charset="UTF-8")
+  script(type="text/javascript" src="http://code.jquery.com/jquery-1.10")
+  link(rel="stylesheet", href="styles/styles.css")
+  title Document
+body
+
+  h1 Pictures
+  ul
+    each picture in pictures
+      li
+        span= picture._id
+        code.data
+          each cell in picture.captureGrid
+            div.cell(style="background-color",#{cell})
+  

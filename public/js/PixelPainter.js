@@ -178,7 +178,7 @@ $(document).ready(function()
         $.post(
           "/save",
           {
-            filename: "default",
+            filename: "defaults",
             image: arr
           }        ,
           function() {
@@ -194,7 +194,7 @@ $(document).ready(function()
 
         var data;
         $.getJSON(
-            '/load/default',
+            '/load/defaults',
             '',
             function(data) {
               //var array = data.image;
