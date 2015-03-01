@@ -175,8 +175,6 @@ $(document).ready(function()
           function(el) { return el; }
           );
 
-        alert(arr);
-
         $.post(
           "/save",
           {
@@ -194,7 +192,29 @@ $(document).ready(function()
 
       load.on("click",function(){
 
+        var data;
+        $.getJSON(
+            '/load/default',
+            '',
+            function(data) {
+              //var array = data.image;
+              console.log(data);
+              console.log(data[0].pixels);
 
+              var pixelData = data[0].pixels;
+
+              for(i in pixelData) {
+                $( $('.pixel')[i] ).css("background-color", pixelData[i]);
+              }
+
+
+              // $('pixels').map( function( idx, val) {
+              //       $('pixels')[i$(val).css('background-color', pixelData[idx]);
+              //     }
+              //   );
+
+            }
+          );
 
 
       });

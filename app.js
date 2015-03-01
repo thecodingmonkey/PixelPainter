@@ -41,15 +41,14 @@ app.post('/save', function (req, res) {
     height: 20
   });
 
-  data.save(function(err) {
+  Image.remove({name: filename}, function(err) {
     if (err) throw err;
-    res.redirect("/load/" + filename);
+
+    data.save(function(err) {
+      if (err) throw err;
+      res.send("OK");
+    });
   });
-
-// console.log(imageData[0]);
-//  console.log(req.body);
-
-
 });
 
 var server = app.listen(3000, function () {
