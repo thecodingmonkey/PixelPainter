@@ -20,13 +20,35 @@ var imageSchema = new Schema({
 
 var Image = mongoose.model('Image', imageSchema);
 
-app.get('/load', function (req, res) {
+app.get('/load/:filename', function (req, res) {
+  console.log(req.params.filename);
+
+  Image.find({ name: req.params.filename  }, function(err, data) {
+    if (err) throw err;
+
+    res.json(data);
+  });
 });
 
 app.post('/save', function (req, res) {
-  var imageData = req.body.image;
+  var imageData = req.body['image[]'];
+  var filename = req.body.filename;
 
-  console.log(imageData);
+  var data = new Image({
+    name: filename,
+    pixels: imageData,
+    width: 20,
+    height: 20
+  });
+
+  data.save(function(err) {
+    if (err) throw err;
+    res.redirect("/load/" + filename);
+  });
+
+// console.log(imageData[0]);
+//  console.log(req.body);
+
 
 });
 

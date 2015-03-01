@@ -167,6 +167,38 @@ $(document).ready(function()
       });
 
 
+      save.on("click",function() {
+        alert('foo');
+
+        var arr = $.map( 
+          $(".pixel").map(function(idx, val) { return $(val).css("background-color"); }) ,
+          function(el) { return el; }
+          );
+
+        alert(arr);
+
+        $.post(
+          "/save",
+          {
+            filename: "default",
+            image: arr
+          }        ,
+          function() {
+            alert('done');
+          }
+
+          );
+
+
+      });
+
+      load.on("click",function(){
+
+
+
+
+      });
+
       clear.on("click",function(){
         var sound = {};
         sound = new Audio();
@@ -198,54 +230,26 @@ $(document).ready(function()
       });
 
 
-      save.on("click",function() {
-        alert('foo');
-
-      // var arr = $.map( 
-      //   $(".pixel").map(function(idx, val) { return $(val).css("background-color"); }) ,
-      //   function(el) { return el; }
-      // );
-
-      // $.post(
-      //   "/save",
-      //   {
-      //     filename: "default",
-      //     image: arr
-      //   }        ,
-      //   function() {
-      //     alert('done');
-      //   }
-
-      //   );
 
 
-    });
+      });
 
-    load.on("click",function(){
+      return Paint;
+
+
+    }
 
 
 
 
-    });
+
+
+    var pixelPainter = PixelPainter(20,20);
+    $("#controls").append(pixelPainter.controls);
+    $("#artboard").append(pixelPainter.artboard);
+
 
   });
-
-  return Paint;
-
-
-  }
-
-
-
-
-
-
-  var pixelPainter = PixelPainter(20,20);
-  $("#controls").append(pixelPainter.controls);
-  $("#artboard").append(pixelPainter.artboard);
-
-
-});
 
 
 
