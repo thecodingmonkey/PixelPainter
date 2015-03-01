@@ -19,19 +19,19 @@ $(document).ready(function()
         controls: $("<div>"),
         artboard: $("<div>")
 
-};
+      };
 
 
- 
 
-  Paint.controls.width(140);
-  Paint.controls.height(100);
-  
 
-  
-  
+      Paint.controls.width(140);
+      Paint.controls.height(100);
 
-     
+
+
+
+
+
 
       Paint.artboard.width(450);
       // Paint.artboard.height(10);
@@ -126,33 +126,36 @@ $(document).ready(function()
 
 
 
-  var erase = $("<button>");
-  erase.width(100);
-  erase.height(30);
-  erase.html("erase");
-  erase.css({"display":"block"});
-  
-  var clear = $("<button>"); 
-  clear.width(100);
-  clear.height(30);
-  clear.html("clear"); 
-  clear.css({"display":"block"});
-  
-  var load = $("<button>"); 
-  load.width(100);
-  load.height(30);
-  load.html("load"); 
-  load.css({"display":"block"});
+      var erase = $("<button>");
+      erase.width(100);
+      erase.height(30);
+      erase.html("erase");
+      erase.css({"display":"block"});
 
-  var save = $("<button>"); 
-  save.width(100);
-  save.height(30);
-  save.html("save"); 
-  save.css({"display":"block"});
+      var clear = $("<button>"); 
+      clear.width(100);
+      clear.height(30);
+      clear.html("clear"); 
+      clear.css({"display":"block"});
 
-  Paint.controls.append(erase).append(clear).append(load).append(save);
+      var load = $("<button>"); 
+      load.width(100);
+      load.height(30);
+      load.html("load"); 
+      load.css({"display":"block"});
 
-     
+      var save = $("<button>"); 
+      save.width(100);
+      save.height(30);
+      save.html("save"); 
+      save.css({"display":"block"});
+
+      Paint.controls.append(erase)
+      .append(clear)
+      .append(load)
+      .append(save);
+
+
 
       
 
@@ -162,7 +165,7 @@ $(document).ready(function()
 
 
       });
- 
+
 
       clear.on("click",function(){
         var sound = {};
@@ -179,105 +182,55 @@ $(document).ready(function()
         idx_x = idx % (width);
         idx_y = idx / (width);
 
-
-
         $(item).animate(
         {
-          //          width: 0,
-          backgroundColor: "#008000"
-        },
-         400  // .4sec
-         )
+              //          width: 0,
+              backgroundColor: "#008000"
+            },
+             400  // .4sec
+             )
         .delay(10 * (idx_x + idx_y*4 + 5))
         .queue( function(next){ 
           $(this).css("background-color", "");
           next(); 
-        });
-
-
-    save.on("click",function(){
-
-  
-
-
-  });
-
-    load.on("click",function(){
-
- 
-
-
-  });
-
-    
-
-
-        // .animate(
-        //     {
-        //         backgroundColor: ""
-        //     },
-        //     20 * (idx_x + idx_y*4 + 5)
-        //   )
-        // ;
-
+        }
+        );
       });
 
 
-      //   $(".pixel").css("background-color","");
+      save.on("click",function() {
+        alert('foo');
+
+      // var arr = $.map( 
+      //   $(".pixel").map(function(idx, val) { return $(val).css("background-color"); }) ,
+      //   function(el) { return el; }
+      // );
+
+      // $.post(
+      //   "/save",
+      //   {
+      //     filename: "default",
+      //     image: arr
+      //   }        ,
+      //   function() {
+      //     alert('done');
+      //   }
+
+      //   );
 
 
-
-  // var input_box = $("<input>");
-  // input_box.addClass("number1");
-  
-  // var input_box2 = $("<input>");
-  // input_box2.addClass("number2");
-  
-  // var label = $("<label>");
-  // var label2 = $("<label>");
-  // var size_button = $("<button>");
-
-  // size_button.html("Change Size");
-  
-  // label.html("Width:");
-
- 
-  // Paint.controls.append(label);
-  
-  // input_box.css("width","40px");
-  // input_box.css("height","20px");
-
-  // input_box2.css("width","40px");
-  // input_box2.css("height","20px");
-  
-  // Paint.controls.append(input_box);
-  // Paint.controls.append("<br>");
-
-  // label2.html("Height:");
- 
-  // Paint.controls.append(label2);
-
-  // Paint.controls.append(input_box2);
-
-  // Paint.controls.append(size_button);
-
-  // size_button.on("click",function(){
-
-    
-
-  //   pixel.width(input_box.value);
-  //   pixel.height(input_box2.value);
-
-  //   var pixelPainter = PixelPainter(20,20);
-  //   $("#artboard").append(pixelPainter.controls);
-    
-   
-  // });
-
-  
     });
 
-    return Paint;
+    load.on("click",function(){
+
+
+
+
+    });
+
+  });
+
+  return Paint;
 
 
   }
@@ -287,11 +240,11 @@ $(document).ready(function()
 
 
 
-var pixelPainter = PixelPainter(20,21);
-$("#controls").append(pixelPainter.controls);
-$("#artboard").append(pixelPainter.artboard);
+  var pixelPainter = PixelPainter(20,20);
+  $("#controls").append(pixelPainter.controls);
+  $("#artboard").append(pixelPainter.artboard);
 
- 
+
 });
 
 
